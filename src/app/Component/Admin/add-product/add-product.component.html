@@ -1,0 +1,47 @@
+<form (ngSubmit)='addProduct()' [formGroup]='addProductForm'>
+    <div class="topnav" id="myTopnav">
+        <button type="button" (click)="logout()">Logout</button>
+    </div>
+    <div class="container">
+        <div class="title">
+            Add Products
+        </div>
+        <div class="inputBoxes">
+            <p><input formControlName='' type="text" placeholder="Product Name"></p>
+            <div *ngIf="addProductForm.get('title').hasError('required') && 
+                addProductForm.get('title').touched" style="color: red;">*This Field is Required...</div>
+
+            <p><input formControlName='price' type="text" placeholder="Product Price"></p>
+            <div *ngIf="addProductForm.get('price').hasError('required') && 
+            addProductForm.get('price').touched" style="color: red;">*This Field is Required...</div>
+
+            <p><input formControlName='category' type="text" placeholder="Product Catergory"></p>
+            <div *ngIf="addProductForm.get('category').hasError('required') && 
+            addProductForm.get('category').touched" style="color: red;">*This Field is Required...</div>
+
+            <p><input formControlName='description' type="text" placeholder="Product Description"></p>
+            <div *ngIf="addProductForm.get('description').hasError('required') && 
+            addProductForm.get('description').touched" style="color: red;">*This Field is Required...</div>
+            
+            <div class="form-group" style="margin-right: 10%;">
+                <label for="file" style="font-size: 16px; color: ivory;">Product Image</label>
+                <input 
+                    formControlName="file"
+                    id="file" 
+                    type="file" 
+                    class="form-control"
+                    (change)="onFileChange($event)">
+                <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+                    <div *ngIf="f.file.errors.required">File is required.</div>
+                </div>
+            </div>
+            
+            <img [src]="imageSrc" *ngIf="imageSrc" style="height: 10%; width:90%">
+        
+        </div>
+        <div class="submit">
+            <button type="submit">Add</button>
+        </div>
+    </div>
+</form>
+

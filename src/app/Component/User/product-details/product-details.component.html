@@ -1,0 +1,17 @@
+<form>
+  <div class="topnav" id="myTopnav">
+      <button type="button" (click)="logout()">Logout</button>
+  </div>
+  <div class="products" *ngFor="let a of productDetails">
+    <div class="card" style="width: 45rem; margin:10%; border: 3px solid rgb(66, 65, 65); font-size: 18px; border-radius: 6px;">
+        <img src="{{a.image}}" class="card-img-top" style="height:350px; width:400px; padding: 5%; margin-left: 20%;">
+        <div class="card-body">
+          <p class="card-text"><b>{{a.title}}</b></p>
+          <p class="card-text"><b>Price:</b> {{a.price}}$</p>
+          <p class="card-text"><b>Category:</b> {{a.category}}</p>
+          <p class="card-text"><b>Description:</b> {{a.description}}</p>
+        </div>
+    </div>
+  </div>
+</form>
+  

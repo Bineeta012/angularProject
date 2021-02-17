@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav style="background-color: #333;" #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar style="color: ivory;">Menu</mat-toolbar>
+    <mat-toolbar style="color: ivory;">Admin</mat-toolbar>
+    <mat-nav-list>
+      <a style="color: ivory;" mat-list-item routerLink="products">Show Products</a>
+      <a style="color: ivory;" mat-list-item routerLink="addProduct">Add Product</a>
+    </mat-nav-list>
+    <div class="space" style="height: 5%;"> </div>
+    <mat-toolbar style="color: ivory;">User</mat-toolbar>
+    <mat-nav-list>
+      <a style="color: ivory;" mat-list-item routerLink="showProducts">Products</a>
+      <a style="color: ivory;" mat-list-item routerLink="profile">Profile</a>
+      <a style="color: ivory;" mat-list-item routerLink="cart">Cart</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="(isHandset$ | async)">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Everything Toon</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,42 @@
+<form (ngSubmit)='adminRegisterData()' [formGroup]='adminRegisterForm'>
+<div class="topnav" id="myTopnav">
+    <a href='adminLogin'>Login</a>
+</div>
+  <div class="container">
+      <div class="title">
+          ADMIN REGISTER
+      </div>
+      <div class="inputBoxes">
+      <p><input formControlName='fname' type="text" placeholder="Your First Name"></p>
+      <div *ngIf="adminRegisterForm.get('fname').hasError('required') && 
+      adminRegisterForm.get('fname').touched" style="color: red;">*This Field is Required...</div>
+
+      <p><input formControlName='lname' type="text" placeholder="Your Last Name"></p>
+      <div *ngIf="adminRegisterForm.get('lname').hasError('required') && 
+      adminRegisterForm.get('lname').touched" style="color: red;">*This Field is Required...</div>
+      
+      <p><input formControlName='email' type="text" placeholder="Mail"></p>
+      <div *ngIf="adminRegisterForm.get('email').hasError('required') && 
+      adminRegisterForm.get('email').touched" style="color: red;">*This Field is Required...</div>
+      <div *ngIf="adminRegisterForm.get('email').hasError('pattern')" style="color:red">
+          *Please Enter a Valid Email Address...</div>
+
+          <div class="mat-form-field" appearance="fill">
+            <input formControlName='password' matInput [type]="hide ? 'password' : 'text'" placeholder="Password">
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+          </div>
+      <div *ngIf="adminRegisterForm.get('password').hasError('required') && 
+      adminRegisterForm.get('password').touched" style="color: red;">*This Field is Required...</div>
+      <div *ngIf="adminRegisterForm.get('password').hasError('pattern')" style="color:red">
+          *Please Enter a Valid Password...</div>
+      </div>
+      <div class="submit">
+          <p><button type="submit">Register</button></p>
+      </div>
+      <div class="text">Already a member? <a href="adminLogin"><b>Click here </b></a>to Login.</div>
+      </div>
+  </form>
+
+ 

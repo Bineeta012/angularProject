@@ -1,0 +1,42 @@
+<form (ngSubmit)='userRegisterData()' [formGroup]='userRegisterForm'>
+    <div class="topnav" id="myTopnav">
+        <a href='userLogin'>Login</a>
+    </div>
+      <div class="container">
+          <div class="title">
+              REGISTER
+          </div>
+          <div class="inputBoxes">
+          <p><input formControlName='firstname' type="text" placeholder="Your First Name"></p>
+          <div *ngIf="userRegisterForm.get('firstname').hasError('required') && 
+          userRegisterForm.get('firstname').touched" style="color: red;">*This Field is Required...</div>
+    
+          <p><input formControlName='lastname' type="text" placeholder="Your Last Name"></p>
+          <div *ngIf="userRegisterForm.get('lastname').hasError('required') && 
+          userRegisterForm.get('lastname').touched" style="color: red;">*This Field is Required...</div>
+          
+          <p><input formControlName='email' type="text" placeholder="Mail"></p>
+          <div *ngIf="userRegisterForm.get('email').hasError('required') && 
+          userRegisterForm.get('email').touched" style="color: red;">*This Field is Required...</div>
+          <div *ngIf="userRegisterForm.get('email').hasError('pattern')" style="color:red">
+              *Please Enter a Valid Email Address...</div>
+    
+              <div class="mat-form-field" appearance="fill">
+                <input formControlName='password' matInput [type]="hide ? 'password' : 'text'" placeholder="Password">
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+              </div>
+          <div *ngIf="userRegisterForm.get('password').hasError('required') && 
+          userRegisterForm.get('password').touched" style="color: red;">*This Field is Required...</div>
+          <div *ngIf="userRegisterForm.get('password').hasError('pattern')" style="color:red">
+              *Please Enter a Valid Password...</div>
+          </div>
+          <div class="submit">
+              <p><button type="submit">Register</button></p>
+          </div>
+          <div class="text">Already a member? <a href="userLogin"><b>Click here </b></a>to Login.</div>
+          </div>
+      </form>
+    
+     

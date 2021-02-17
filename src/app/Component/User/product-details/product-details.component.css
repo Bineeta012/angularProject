@@ -1,0 +1,42 @@
+.products{
+    margin: 10px 10%;
+    display: inline-block;
+}
+body {
+    margin: 0;
+    font-family:"Roboto, Helvetica Neue, sans-serif";
+  }
+  form {
+      background-size:cover;
+      background-image: url("./../../../../assets/background1.jpg");
+  }
+  .topnav {
+    overflow: hidden;
+    background-color: rgb(44, 44, 44);
+  }
+  
+  .topnav button {
+    float: right;
+    background-color: rgb(44, 44, 44);
+    color:cornsilk;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+    border: hidden;
+  }
+  
+  .topnav button:hover {
+    background-color:#673ab7;
+    padding: 12px 16px;
+    border:rgb(44, 44, 44) 1px solid;
+    color: cornsilk;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav {position: relative;}
+  }
+  .form-inline{
+    float: right;
+  }

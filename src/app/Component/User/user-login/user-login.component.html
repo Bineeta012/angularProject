@@ -1,0 +1,38 @@
+<form (ngSubmit)='userLoginData()' [formGroup]='userLoginForm'>
+    <div class="topnav" id="myTopnav">
+        <a href='userRegister'>Register</a>
+    </div>
+      <div class="container">
+
+        <div class="title">LOGIN</div>
+
+        <div class="inputBoxes">
+          <p><input formControlName='email' type="text" placeholder="Mail"></p>
+          <div *ngIf="userLoginForm.get('email').hasError('required') && 
+          userLoginForm.get('email').touched" style="color: red;">*This Field is Required...</div>
+          <div *ngIf="userLoginForm.get('email').hasError('pattern')" style="color:red">
+              *Please Enter a Valid Email Address...</div>
+    
+          <div class="mat-form-field" appearance="fill">
+              <input formControlName='password' matInput [type]="hide ? 'password' : 'text'" placeholder="Password">
+              <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </div>
+          <div *ngIf="userLoginForm.get('password').hasError('required') && 
+          userLoginForm.get('password').touched" style="color: red;">*This Field is Required...</div>
+          <div *ngIf="userLoginForm.get('password').hasError('pattern')" style="color:red">
+              *Please Enter a Valid Password...</div>
+        </div>
+
+        <div class="submit">
+              <p><button type="submit" [disabled]="userLoginForm.invalid">Login</button></p>
+              <!-- <p><button type="button" (click)="logout()">Logout</button> -->
+        </div>
+
+        <div class="text">Not a member? <a href="userRegister"><b>Click here </b></a>to Register.</div>
+
+    </div>
+</form>
+    
+     
