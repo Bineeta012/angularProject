@@ -41,7 +41,7 @@ import { ProductDetailsComponent } from './Component/User/product-details/produc
     ProductDetailsComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     RoutingModule,
     ReactiveFormsModule,

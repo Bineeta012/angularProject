@@ -29,7 +29,9 @@ const myRoutes:Routes=[
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,RouterModule.forRoot(myRoutes)
+    CommonModule,RouterModule.forRoot(myRoutes, {
+    initialNavigation: 'enabled'
+})
   ],
   exports:[RouterModule]
 })
